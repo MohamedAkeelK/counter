@@ -8,12 +8,31 @@ class Counter extends Component {
    };
  }
 
- increment = () => {
-   this.setState ({
-     count: this.state.count + 1
-   })
- }
  
+
+ increment = () => {
+  if(this.state.count < 20) {
+    this.setState ({
+      count: this.state.count + 1
+    })
+  }
+ }
+
+
+ decrement = () => {
+  if(this.state.count > 0) {
+    this.setState ({
+      count: this.state.count - 1
+    })
+  }
+}
+ 
+clear = () => {
+  this.setState ({
+    count: this.state.count = 0
+  })
+
+}
   render() {
     return(
       <div className = "container">
@@ -21,7 +40,8 @@ class Counter extends Component {
         <div className = "counter">
           <h1>{this.state.count}</h1>
           <button type = "button" onClick = {this.increment}>Increment</button>
-          <button type = "button">Decrement</button>
+          <button type = "button" onClick = {this.decrement}>Decrement</button>
+          <button type = "button" onClick = {this.clear}>clear</button>
         </div>
       </div>
     )
