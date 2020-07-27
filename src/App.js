@@ -27,12 +27,17 @@ class Counter extends Component {
   }
 }
  
-clear = () => {
-  this.setState ({
-    count: this.state.count = 0
-  })
+ clear = () => {
+    this.setState ({
+      count: this.state.count = 0
+    })
 
-}
+  }
+
+  toggle = () => {
+    
+  }
+
   render() {
     return(
       <div className = "container">
@@ -42,6 +47,7 @@ clear = () => {
           <button type = "button" onClick = {this.increment}>Increment</button>
           <button type = "button" onClick = {this.decrement}>Decrement</button>
           <button type = "button" onClick = {this.clear}>clear</button>
+          <button type = "button" onClick = {this.toggle}>toggle bewtween increments of 1 and 2</button>
         </div>
       </div>
     )
