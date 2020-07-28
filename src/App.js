@@ -5,6 +5,7 @@ class Counter extends Component {
    super();
    this.state = {
      count: 0,
+     button: "single increment"
    };
  }
 
@@ -35,7 +36,19 @@ class Counter extends Component {
   }
 
   toggle = () => {
-    
+    if((this.state.button === "single increment") && (this.state.count  <= 20)) {
+      this.setState ({
+        count: this.state.count + 1,
+        button: "double increment"
+      })
+    } else if ((this.state.button === "double increment") && (this.state.count <= 18)) {
+      this.setState ({
+        count: this.state.count + 2,
+        button: "single increment"
+      })
+    } else {
+        return;
+    }
   }
 
   render() {
@@ -47,7 +60,7 @@ class Counter extends Component {
           <button type = "button" onClick = {this.increment}>Increment</button>
           <button type = "button" onClick = {this.decrement}>Decrement</button>
           <button type = "button" onClick = {this.clear}>clear</button>
-          <button type = "button" onClick = {this.toggle}>toggle bewtween increments of 1 and 2</button>
+          <button type = "button" onClick = {this.toggle}>{this.state.button}</button>
         </div>
       </div>
     )
